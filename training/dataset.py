@@ -167,7 +167,7 @@ class ImageFolderDataset(Dataset):
             self._type = 'zip'
             self._all_fnames = set(self._get_zipfile().namelist())
         else:
-            raise IOError('Path must point to a directory or zip')
+            raise IOError('Path %s must point to a directory or zip' % self._path)
 
         PIL.Image.init()
         self._image_fnames = sorted(fname for fname in self._all_fnames if self._file_ext(fname) in PIL.Image.EXTENSION)
